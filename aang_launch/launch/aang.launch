@@ -1,0 +1,11 @@
+<launch>
+    <!-- Run Rviz and load the default config to see the state of the move_group node -->
+    <include file="$(find aang_launch)/launch/aang_rviz.launch">
+        <arg name="config" value="true"/>
+    </include>
+
+    <!-- Run Kinect2 bridge launch file -->
+    <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch"/>
+    <node pkg="tf" type="static_transform_publisher" name="kinect_broadcaster" args="0.0 0.0 0.75 0 0 -2.0 world kinect2_ir_optical_frame 100" />
+</launch>
+
